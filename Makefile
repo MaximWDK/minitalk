@@ -7,8 +7,10 @@ NAME = client server
 LIBC = ar rcs
 CC = gcc
 RM = rm -f
-printf/printf.a
-libft/libft.a
+LIBFTDIR	= libft
+PRINTFDIR	= printf
+PRINTF		= ${PRINTFDIR}/libftprintf.a
+LIBFT		= ${LIBFTDIR}/libft.a
 CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g
 
 .c.o:
@@ -19,12 +21,12 @@ all: client server
 server: server.o
 	make -C ${LIBFTDIR}
 	make -C ${PRINTFDIR}
-	${CC} ${CFLAGS} -o server server.o printf/printf.a
+	${CC} ${CFLAGS} -o server server.o printf/libftprintf.a
 
 client: client.o
 	make -C $(LIBFTDIR)
 	make -C ${PRINTFDIR}
-	${CC} ${CFLAGS} -o client client.o printf/printf.a libft/libft.a
+	${CC} ${CFLAGS} -o client client.o printf/libftprintf.a libft/libft.a
 clean:
 	make clean -C ${LIBFTDIR}
 	make clean -C ${PRINTFDIR}

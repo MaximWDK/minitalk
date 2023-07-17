@@ -6,7 +6,7 @@
 /*   By: mleonet <mleonet@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 16:43:42 by mleonet           #+#    #+#             */
-/*   Updated: 2023/07/17 17:18:31 by mleonet          ###   ########.fr       */
+/*   Updated: 2023/07/17 17:43:14 by mleonet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	send_signal(char c, int pid)
 	}
 }
 
-int	main(int argc, int **argv)
+int	main(int argc, char **argv)
 {
 	int	pid;
 	int	i;
