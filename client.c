@@ -6,7 +6,7 @@
 /*   By: mleonet <mleonet@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 16:43:42 by mleonet           #+#    #+#             */
-/*   Updated: 2023/07/17 18:30:56 by mleonet          ###   ########.fr       */
+/*   Updated: 2023/07/17 18:50:26 by mleonet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	send_signal(char c, int pid)
 			if (kill(pid, SIGUSR2) == -1)
 				exit(EXIT_FAILURE);
 		}
-		usleep(500);
+		usleep(100);
 	}
 }
 

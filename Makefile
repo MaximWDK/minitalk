@@ -7,10 +7,8 @@ NAME = client server
 LIBC = ar rcs
 CC = gcc
 RM = rm -f
-LIBFTDIR	= libft
-PRINTFDIR	= printf
-LIBFT		= ${LIBFTDIR}/libft.a
-PRINTF		= ${PRINTFDIR}/libftprintf.a
+LIBFTDIR = libft
+PRINTFDIR = printf
 CFLAGS = -Wall -Wextra -Werror
 
 .c.o:
@@ -18,15 +16,14 @@ CFLAGS = -Wall -Wextra -Werror
 
 all: client server
 
-server: server.o
-	make -C ${LIBFTDIR}
-	make -C ${PRINTFDIR}
-	${CC} ${CFLAGS} -o server server.o printf/libftprintf.a
-
 client: client.o
 	make -C $(LIBFTDIR)
 	make -C ${PRINTFDIR}
-	${CC} ${CFLAGS} -o client client.o printf/libftprintf.a libft/libft.a
+	${CC} ${CFLAGS} -o client client.o printf/printf.a libft/libft.a
+
+server: server.o
+	${CC} ${CFLAGS} -o server server.o printf/printf.a
+	
 clean:
 	make clean -C ${LIBFTDIR}
 	make clean -C ${PRINTFDIR}

@@ -3,7 +3,7 @@ SRCS = \
 	ft_utils.c
 
 OBJS = ${SRCS:.c=.o}
-NAME = libftprintf.a
+NAME = printf.a
 LIBC = ar rcs
 CC = gcc
 RM = rm -f
