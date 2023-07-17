@@ -9,9 +9,9 @@ CC = gcc
 RM = rm -f
 LIBFTDIR	= libft
 PRINTFDIR	= printf
-PRINTF		= ${PRINTFDIR}/libftprintf.a
 LIBFT		= ${LIBFTDIR}/libft.a
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g
+PRINTF		= ${PRINTFDIR}/libftprintf.a
+CFLAGS = -Wall -Wextra -Werror
 
 .c.o:
 	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}

@@ -6,7 +6,7 @@
 /*   By: mleonet <mleonet@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 16:43:42 by mleonet           #+#    #+#             */
-/*   Updated: 2023/07/17 17:43:14 by mleonet          ###   ########.fr       */
+/*   Updated: 2023/07/17 18:30:56 by mleonet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,17 @@ static void	send_signal(char c, int pid)
 	i = -1;
 	while (++i < 8)
 	{
-		if (c & 0x01)
-			kill(pid, SIGUSR2);
+		if ((c & (0x01 << i)) != 0)
+		{
+			if (kill(pid, SIGUSR1) == -1)
+				exit(EXIT_FAILURE);
+		}
 		else
-			kill(pid, SIGUSR1);
-		usleep(100);
+		{
+			if (kill(pid, SIGUSR2) == -1)
+				exit(EXIT_FAILURE);
+		}
+		usleep(500);
 	}
 }
 
@@ -45,10 +51,10 @@ int	main(int argc, char **argv)
 	pid = ft_atoi(argv[1]);
 	if (pid == -1 || pid == 0)
 	{
-		ft_printf("Erreur de PID");
+		ft_printf("Erreur de PID !\n");
 		return (0);
 	}
-	while (argv[2])
+	while (argv[2][i])
 		send_signal(argv[2][i++], pid);
 	send_signal('\n', pid);
 	return (0);

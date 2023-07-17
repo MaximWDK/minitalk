@@ -6,7 +6,7 @@
 /*   By: mleonet <mleonet@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 16:34:41 by mleonet           #+#    #+#             */
-/*   Updated: 2023/07/17 17:44:49 by mleonet          ###   ########.fr       */
+/*   Updated: 2023/07/17 18:17:38 by mleonet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ int	main(void)
 {
 	ft_printf("PID: %d\n", getpid());
 	ft_printf("Waiting for message...\n");
-	signal(SIGUSR1, ft_handler);
-	signal(SIGUSR2, ft_handler);
+	while (1)
+	{
+		signal(SIGUSR1, ft_handler);
+		signal(SIGUSR2, ft_handler);
+	}
 }
