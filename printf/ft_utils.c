@@ -6,7 +6,7 @@
 /*   By: mleonet <mleonet@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 15:13:24 by mleonet           #+#    #+#             */
-/*   Updated: 2023/05/23 18:01:27 by mleonet          ###   ########.fr       */
+/*   Updated: 2023/07/22 01:34:44 by mleonet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,7 @@ size_t	ft_putstr(char *str)
 		return (6);
 	}
 	while (str[i])
-	{
 		write(1, &str[i++], 1);
-	}
 	return (i);
 }
 
