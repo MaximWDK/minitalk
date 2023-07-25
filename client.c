@@ -6,7 +6,7 @@
 /*   By: mleonet <mleonet@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 16:43:42 by mleonet           #+#    #+#             */
-/*   Updated: 2023/07/17 18:50:26 by mleonet          ###   ########.fr       */
+/*   Updated: 2023/07/25 15:10:16 by mleonet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include <signal.h>
 #include <stdlib.h>
 #include "libft/libft.h"
-#include "printf/ft_printf.h"
 
 static void	send_signal(char c, int pid)
 {
