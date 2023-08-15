@@ -6,11 +6,11 @@
 /*   By: mleonet <mleonet@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 15:13:24 by mleonet           #+#    #+#             */
-/*   Updated: 2023/07/25 13:21:43 by mleonet          ###   ########.fr       */
+/*   Updated: 2023/08/15 23:10:46 by mleonet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 size_t	ft_putstr(char *str)
 {

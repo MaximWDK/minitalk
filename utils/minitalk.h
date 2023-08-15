@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   minitalk.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mleonet <mleonet@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/06 15:36:14 by mleonet           #+#    #+#             */
-/*   Updated: 2023/05/09 19:43:16 by mleonet          ###   ########.fr       */
+/*   Created: 2023/08/15 22:53:49 by mleonet           #+#    #+#             */
+/*   Updated: 2023/08/15 23:11:26 by mleonet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef MINITALK_H
+# define MINITALK_H
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
-{
-	size_t			i;
-	unsigned char	*a;
-	unsigned char	*b;
+# include <sys/types.h>
+# include <signal.h>
+# include "../ft_printf/ft_printf.h"
 
-	i = -1;
-	a = (unsigned char *) s1;
-	b = (unsigned char *) s2;
-	if (n == 0)
-		return (0);
-	while (++i < n)
-	{
-		if (a[i] != b[i])
-			return (a[i] - b[i]);
-	}
-	return (0);
-}
+int	ft_atoi(const char *str);
+
+#endif

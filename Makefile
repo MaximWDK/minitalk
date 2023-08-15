@@ -1,34 +1,47 @@
-SRCS = \
-	client.c \
-	server.c
+SRCS = client.c utils/ft_atoi.c ft_printf/ft_printf.c ft_printf/ft_printf_utils.c
+S_SRCS = server.c utils/ft_atoi.c ft_printf/ft_printf.c ft_printf/ft_printf_utils.c
+B_SRCS = client_bonus.c utils/ft_atoi.c ft_printf/ft_printf.c ft_printf/ft_printf_utils.c
+BS_SRCS = server_bonus.c utils/ft_atoi.c ft_printf/ft_printf.c ft_printf/ft_printf_utils.c
 
-OBJS = ${SRCS:.c=.o}
-NAME = client server
-LIBC = ar rcs
+NAME = client
+S_NAME = server
+B_NAME = client_bonus
+BS_NAME = server_bonus
+
+OBJS = $(SRCS:.c=.o)
+S_OBJS = $(S_SRCS:.c=.o)
+B_OBJS = $(B_SRCS:.c=.o)
+BS_OBJS = $(BS_SRCS:.c=.o)
+
 CC = gcc
 RM = rm -f
-LIBFTDIR = libft
 CFLAGS = -Wall -Wextra -Werror
 
 .c.o:
 	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
-all: client server
+all: $(NAME) $(S_NAME)
 
-client: client.o
-	make -C $(LIBFTDIR)
-	${CC} ${CFLAGS} -o client client.o libft/libft.a
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-server: server.o
-	${CC} ${CFLAGS} -o server server.o libft/libft.a
-	
+$(S_NAME): $(S_OBJS)
+	$(CC) $(CFLAGS) $(S_OBJS) -o $(S_NAME)
+
+bonus: $(B_NAME) $(BS_NAME)
+
+$(B_NAME): $(B_OBJS)
+	$(CC) $(CFLAGS) -o $(B_NAME) $(B_OBJS)
+
+$(BS_NAME): $(BS_OBJS)
+	$(CC) $(CFLAGS) -o $(BS_NAME) $(BS_OBJS)
+
 clean:
-	${RM} ${OBJS}
+	${RM} ${OBJS} ${S_OBJS} ${B_OBJS} ${BS_OBJS}
 
 fclean: clean
-	make fclean -C ${LIBFTDIR}
-	${RM} ${NAME}
+	${RM} ${NAME} ${S_NAME} ${B_NAME} ${BS_NAME}
 
 re: fclean all
 
-.PHONY : all clean fclean re
+.PHONY : all bonus clean fclean re
